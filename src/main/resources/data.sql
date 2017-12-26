@@ -1,23 +1,22 @@
 insert into food_item(id, title, description, price, photo_uri, day) values 
---	(1, 'Prvi', 'prvi item', '', 1, 100.0),
-	(
-		1,
-        'Teleca corba',
+    (
+        21,
+        'Dimljeni batak',
         'Mmm...',
-        180.00,
-        'https://www.donesi.com/images/product/48/13248.jpg',
+        450.00,
+        'https://www.donesi.com/images/product/84/13284.jpg',
         0
     ),
     (
-        2,
-        'Corbast pasulj sa suvim mesom',
+        22,
+        'Pohovani kackavalj - obrok',
         'Mmm...',
         350.00,
-        'https://www.donesi.com/images/product/49/13249.jpg',
+        'https://www.donesi.com/images/product/11/13311.jpg',
         0
     ),
     (
-        3,
+        23,
         'Juneci gulas',
         'Mmm...',
         430.00,
@@ -25,7 +24,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
         0
     ),
     (
-        4,
+        24,
         'Piletina sa povrcem',
         'Mmm...',
         360.00,
@@ -33,12 +32,108 @@ insert into food_item(id, title, description, price, photo_uri, day) values
         0
     ),
     (
+        25,
+        'File soma',
+        'Mmm...',
+        480.00,
+        'https://www.donesi.com/images/product/41/59641.jpg',
+        0
+    ),
+    (
+        26,
+        'Rolovano pilece belo',
+        'Mmm...',
+        490.00,
+        'https://www.donesi.com/images/product/32/13332.jpg',
+        0
+    ),
+    (
+        11,
+        'Cevapi - porcija',
+        'Mmm...',
+        450.00,
+        'https://www.donesi.com/images/product/59/14259.jpg',
+        1
+    ),
+    (
+        12,
+        'Komplet obrok - piletina',
+        'Mmm...',
+        530.00,
+        'https://www.donesi.com/images/product/77/13277.jpg',
+        1
+    ),
+    (
+        13,
+        'Dimljena vesalica',
+        'Mmm...',
+        530.00,
+        'https://www.donesi.com/images/product/62/13262.jpg',
+        1
+    ),
+    (
+        14,
+        'Piletina sa povrcem',
+        'Mmm...',
+        360.00,
+        'https://www.donesi.com/images/product/11/110611.jpg',
+        1
+    ),
+    (
+        15,
+        'Pileci stapici u susamu',
+        'Mmm...',
+        380.00,
+        'https://www.donesi.com/images/product/10/110610.jpg',
+        1
+    ),
+    (
+        16,
+        'Cureci medaljoni u sosu od pecuraka',
+        'Mmm...',
+        570.00,
+        'https://www.donesi.com/images/product/91/13291.jpg',
+        1
+    ),
+    (
+        1,
+        'Prsut pica',
+        'Mmm...',
+        180.00,
+        'https://www.donesi.com/images/product/86/29986.jpg',
+        2
+    ),
+    (
+        2,
+        'Leskovacki ustipci',
+        'Mmm...',
+        350.00,
+        'https://www.donesi.com/images/product/64/13264.jpg',
+        2
+    ),
+    (
+        3,
+        'Juneci gulas',
+        'Mmm...',
+        430.00,
+        'https://www.donesi.com/images/product/50/13250.jpg',
+        2
+    ),
+    (
+        4,
+        'Piletina sa povrcem',
+        'Mmm...',
+        360.00,
+        'https://www.donesi.com/images/product/11/110611.jpg',
+        2
+    ),
+    (
         5,
         'Pileci stapici u susamu',
         'Mmm...',
         380.00,
         'https://www.donesi.com/images/product/10/110610.jpg',
-        0
+        2
     ),
     (
         6,
@@ -46,198 +141,103 @@ insert into food_item(id, title, description, price, photo_uri, day) values
         'Mmm...',
         430.00,
         'https://www.donesi.com/images/product/16/124716.jpg',
-        0
-    ),
-    (
-        7,
-        'Teleca corba',
-        'Mmm...',
-        '180.00',
-        'https://www.donesi.com/images/product/48/13248.jpg',
-        1
-    ),
-    (
-        8,
-        'Corbast pasulj sa suvim mesom',
-        'Mmm...',
-        '350.00',
-        'https://www.donesi.com/images/product/49/13249.jpg',
-        1
-    ),
-    (
-        9,
-        'Juneci gulas',
-        'Mmm...',
-        '430.00',
-        'https://www.donesi.com/images/product/50/13250.jpg',
-        1
-    ),
-    (
-        10,
-        'Piletina sa povrcem',
-        'Mmm...',
-        '360.00',
-        'https://www.donesi.com/images/product/11/110611.jpg',
-        1
-    ),
-    (
-        11,
-        'Pileci stapici u susamu',
-        'Mmm...',
-        '380.00',
-        'https://www.donesi.com/images/product/10/110610.jpg',
-        1
-    ),
-    (
-        12,
-        'Svinjski vrat na zaru',
-        'Mmm...',
-        '430.00',
-        'https://www.donesi.com/images/product/16/124716.jpg',
-        1
-    ),
-    (
-        13,
-        'Teleca corba',
-        'Mmm...',
-        '180.00',
-        'https://www.donesi.com/images/product/48/13248.jpg',
         2
-        
-    ),
+    )
+,
     (
-        14,
-        'Corbast pasulj sa suvim mesom',
+        31,
+        'Pica vegetarijana',
         'Mmm...',
-        '350.00',
-        'https://www.donesi.com/images/product/49/13249.jpg',
-        2
-    ),
-    (
-        15,
-        'Juneci gulas',
-        'Mmm...',
-        '430.00',
-        'https://www.donesi.com/images/product/50/13250.jpg',
-        2
-    ),
-    (
-        16,
-        'Piletina sa povrcem',
-        'Mmm...',
-        '360.00',
-        'https://www.donesi.com/images/product/11/110611.jpg',
-        2
-    ),
-    (
-        17,
-        'Pileci stapici u susamu',
-        'Mmm...',
-        '380.00',
-        'https://www.donesi.com/images/product/10/110610.jpg',
-        2
-    ),
-    (
-        18,
-        'Svinjski vrat na zaru',
-        'Mmm...',
-        '430.00',
-        'https://www.donesi.com/images/product/16/124716.jpg',
-        2
-    ),
-    (
-        19,
-        'Teleca corba',
-        'Mmm...',
-        '180.00',
-        'https://www.donesi.com/images/product/48/13248.jpg',
+        350.00,
+        'https://www.donesi.com/images/product/75/26375.jpg',
         3
     ),
     (
-        20,
+        32,
         'Corbast pasulj sa suvim mesom',
         'Mmm...',
-        '350.00',
+        350.00,
         'https://www.donesi.com/images/product/49/13249.jpg',
         3
     ),
     (
-        21,
+        33,
         'Juneci gulas',
         'Mmm...',
-        '430.00',
+        430.00,
         'https://www.donesi.com/images/product/50/13250.jpg',
         3
     ),
     (
-        22,
+        34,
         'Piletina sa povrcem',
         'Mmm...',
-        '360.00',
+        360.00,
         'https://www.donesi.com/images/product/11/110611.jpg',
         3
     ),
     (
-        23,
+        35,
         'Pileci stapici u susamu',
         'Mmm...',
-        '380.00',
+        380.00,
         'https://www.donesi.com/images/product/10/110610.jpg',
         3
     ),
     (
-        24,
+        36,
         'Svinjski vrat na zaru',
         'Mmm...',
-        '430.00',
+        430.00,
         'https://www.donesi.com/images/product/16/124716.jpg',
         3
-    ),
+    )
+,
     (
-        25,
-        'Teleca corba',
+        41,
+        'Leskovacka muckalica',
         'Mmm...',
-        '180.00',
-        'https://www.donesi.com/images/product/48/13248.jpg',
+        180.00,
+        'https://www.donesi.com/images/product/51/13251.jpg',
         4
     ),
     (
-        26,
-        'Corbast pasulj sa suvim mesom',
+        42,
+        'Pljeskavica u kajmaku - komplet',
         'Mmm...',
-        '350.00',
-        'https://www.donesi.com/images/product/49/13249.jpg',
+        350.00,
+        'https://www.donesi.com/images/product/56/13256.jpg',
         4
     ),
     (
-        27,
+        43,
         'Juneci gulas',
         'Mmm...',
-        '430.00',
+        430.00,
         'https://www.donesi.com/images/product/50/13250.jpg',
         4
     ),
     (
-        28,
+        44,
         'Piletina sa povrcem',
         'Mmm...',
-        '360.00',
+        360.00,
         'https://www.donesi.com/images/product/11/110611.jpg',
         4
     ),
     (
-        29,
+        45,
         'Pileci stapici u susamu',
         'Mmm...',
-        '380.00',
+        380.00,
         'https://www.donesi.com/images/product/10/110610.jpg',
         4
     ),
     (
-        30,
+        46,
         'Svinjski vrat na zaru',
         'Mmm...',
-        '430.00',
+        430.00,
         'https://www.donesi.com/images/product/16/124716.jpg',
         4
     );
