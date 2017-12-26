@@ -32,7 +32,7 @@ public class OrderControllerTest {
 
     @Test
     public void whenPostOrder_thanOK() {
-        String foodItem = restTemplate.postForObject("/order?name=slavisa&day=1&foodList=1,2,3", "",String.class);
+        String foodItem = restTemplate.postForObject("/order?name=slavisa&day=1&foodList=1,2,3", "", String.class);
         assertNotNull("food item", foodItem);
 
         assertThat(foodItem, is("{\"day\":\"1\",\"name\":\"slavisa\",\"orderItems\":[{\"id\":null,\"name\":null,\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":2,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":3,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"}]}]}"));
@@ -40,6 +40,7 @@ public class OrderControllerTest {
 
     @Test
     public void whenWeeklyReport_thanOK() {
+        restTemplate.postForObject("/order?name=slavisa&day=1&foodList=1,2,3", "", String.class);
         String foodItem = restTemplate.getForObject("/order/weekly", String.class);
         assertNotNull("food item", foodItem);
 

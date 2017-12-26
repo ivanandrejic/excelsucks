@@ -1,20 +1,5 @@
 package com.rapid.prototype.excelsucks.web;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.rapid.prototype.excelsucks.domain.Order;
 import com.rapid.prototype.excelsucks.service.OrderItemService;
 import com.rapid.prototype.excelsucks.service.OrderService;
@@ -25,19 +10,16 @@ import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderDailyDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTOBuilder;
-import com.rapid.prototype.excelsucks.web.dto.WeeklyOrderDTO;
-import com.rapid.prototype.excelsucks.web.dto.WeeklyOrderDTOBuilder;
-import com.rapid.prototype.excelsucks.web.dto.WeeklyOrdersBuilder;
 import com.rapid.prototype.excelsucks.web.dto.WeeklyOrdersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,11 +73,7 @@ public class OrderController {
 
     @RequestMapping(value = {"/weekly"}, method = RequestMethod.GET)
     public WeeklyOrdersDTO getWeeklyOrders() {
-        WeeklyOrderDTO slavisa = new WeeklyOrderDTOBuilder().setName("Slavisa").setSum(new BigDecimal(12.34d)).createWeeklyOrderDTO();
-        List<WeeklyOrderDTO> order = new ArrayList<>();
-        order.add(slavisa);
-        WeeklyOrdersDTO weeklyOrdersDTO = new WeeklyOrdersBuilder().setTotalSum(new BigDecimal(1234.56d)).setOrders(order).createWeeklyOrdersDTO();
-        return weeklyOrdersDTO;
+        return orderItemService.fetchWeeklyReport();
     }
 
 }
