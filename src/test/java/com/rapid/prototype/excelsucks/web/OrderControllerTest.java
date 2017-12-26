@@ -27,7 +27,7 @@ public class OrderControllerTest {
     public void whenGetOrderByName_thanOK() {
         String foodItem = restTemplate.getForObject("/order?name=slavisa&day=1", String.class);
         assertNotNull("food item", foodItem);
-        assertThat(foodItem, is("{\"day\":\"0\",\"name\":\"name\",\"orderItemDTOS\":null}"));
+        assertThat(foodItem, is("{\"day\":\"0\",\"name\":\"name\",\"orderItems\":null}"));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class OrderControllerTest {
         String foodItem = restTemplate.postForObject("/order?name=slavisa&day=1&foodList=1,2,3", "",String.class);
         assertNotNull("food item", foodItem);
 
-        assertThat(foodItem, is("{\"day\":\"1\",\"name\":\"slavisa\",\"orderItemDTOS\":[{\"id\":null,\"name\":null,\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":2,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":3,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"}]}]}"));
+        assertThat(foodItem, is("{\"day\":\"1\",\"name\":\"slavisa\",\"orderItems\":[{\"id\":null,\"name\":null,\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":2,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":3,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"}]}]}"));
     }
 
 }

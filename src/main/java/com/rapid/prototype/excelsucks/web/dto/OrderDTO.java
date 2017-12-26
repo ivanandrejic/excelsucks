@@ -42,11 +42,11 @@ public class OrderDTO {
 	}
 
 
-	public List<OrderItemDTO> getOrderItemDTOS() {
+	public List<OrderItemDTO> getOrderItems() {
 		return orderItemDTOS;
 	}
 
-	public void setOrderItemDTOS(List<OrderItemDTO> orderItemDTOS) {
+	public void setOrderItems(List<OrderItemDTO> orderItemDTOS) {
 		this.orderItemDTOS = orderItemDTOS;
 	}
 }
