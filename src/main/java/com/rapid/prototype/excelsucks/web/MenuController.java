@@ -34,6 +34,17 @@ public class MenuController {
         return mFoodList;
     }
 
+    @RequestMapping(value = {"/day/{day}"}, method = RequestMethod.GET )
+    public Map<Long, SummaryFoodList> getFoodList(@PathVariable Integer day) {
+        List<FoodItemDTO> foodItemDTOS = new ArrayList<>();
+        foodItemDTOS.add(new FoodItemBuilder().createFoodItemDTO());
+        SummaryFoodList summaryFoodList = new SummaryFoodList();
+        summaryFoodList.setFoodItems(foodItemDTOS);
+        Map<Long, SummaryFoodList>  mFoodList = new HashMap<>();
+        mFoodList.put(1l, summaryFoodList);
+        return mFoodList;
+    }
+
     @RequestMapping(value = {"/id/{foodItemID}"}, method = RequestMethod.GET )
     public FoodItemDTO getFoodItem(@PathVariable Long foodItemID) {
         return new FoodItemBuilder().createFoodItemDTO();
