@@ -71,10 +71,10 @@ public class OrderController {
         return new OrderBuilder().createOrderDTO();
     }
     
-//    @RequestMapping(value = {"/daily/{day}"}, method = RequestMethod.GET)
-//    public List<OrderDailyDTO> getDailyOrders(@PathVariable Integer day) {
-//        return orderItemService.getDailyOrders(day);
-//    }
+    @RequestMapping(value = {"/daily/{day}"}, method = RequestMethod.GET)
+    public List<OrderDailyDTO> getDailyOrders(@PathVariable Integer day) {
+        return orderItemService.getDailyOrders(day);
+    }
 
     @RequestMapping(value = {"/weekly"}, method = RequestMethod.GET)
     public WeeklyOrdersDTO getWeeklyOrders() {
