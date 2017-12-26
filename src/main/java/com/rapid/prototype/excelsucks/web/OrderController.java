@@ -1,11 +1,14 @@
 package com.rapid.prototype.excelsucks.web;
 
+import com.rapid.prototype.excelsucks.domain.Order;
+import com.rapid.prototype.excelsucks.service.OrderService;
 import com.rapid.prototype.excelsucks.web.dto.FoodItemBuilder;
 import com.rapid.prototype.excelsucks.web.dto.FoodItemDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderBuilder;
 import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTOBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,9 @@ import java.util.stream.Collectors;
 @RestController
 public class OrderController {
 
+    @Autowired
+    private OrderService orderService;
+
     @RequestMapping(value = {"/", ""}, method = RequestMethod.GET)
     public OrderDTO getOrder(@RequestParam String name, @RequestParam String day) {
         return new OrderBuilder().createOrderDTO();
@@ -39,8 +45,7 @@ public class OrderController {
         orderItems.add(new OrderItemDTOBuilder().setFoodItems(listFoodItems).createOrderItemDTO());
         OrderDTO order = new OrderBuilder().setDay(day).setName(name).setOrderList(orderItems).createOrderDTO();
 
-        // TODO add service call
-
+        Order orderCreated = orderService.create(order);
         return order;
     }
 

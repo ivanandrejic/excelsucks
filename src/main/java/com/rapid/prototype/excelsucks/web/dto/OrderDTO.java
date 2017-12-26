@@ -15,7 +15,7 @@ public class OrderDTO {
 	private String name;
 	private List<OrderItemDTO> orderItems;
 
-    public OrderDTO(String day, String name, List<OrderItemDTO> orderItemDTOS) {
+    public OrderDTO(String day, String name, List<OrderItemDTO> orderItems) {
         this.day = day;
         this.name = name;
         this.orderItems = orderItems;
