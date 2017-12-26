@@ -38,4 +38,12 @@ public class OrderControllerTest {
         assertThat(foodItem, is("{\"day\":\"1\",\"name\":\"slavisa\",\"orderItems\":[{\"id\":null,\"name\":null,\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":2,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"},{\"id\":3,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"day\":null,\"photo_uri\":\"photoURI\"}]}]}"));
     }
 
+    @Test
+    public void whenWeeklyReport_thanOK() {
+        String foodItem = restTemplate.getForObject("/order/weekly", String.class);
+        assertNotNull("food item", foodItem);
+
+        assertThat(foodItem, is("{\"orders\":[{\"name\":\"Slavisa\",\"sum\":12.339999999999999857891452847979962825775146484375}],\"total_sum\":1234.55999999999994543031789362430572509765625}"));
+    }
+
 }

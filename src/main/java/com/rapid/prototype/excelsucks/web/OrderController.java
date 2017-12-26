@@ -8,6 +8,10 @@ import com.rapid.prototype.excelsucks.web.dto.OrderBuilder;
 import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTOBuilder;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrderDTO;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrderDTOBuilder;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrdersBuilder;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrdersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,10 +64,13 @@ public class OrderController {
         return new OrderBuilder().createOrderDTO();
     }
 
+    @RequestMapping(value = {"/weekly"}, method = RequestMethod.GET)
+    public WeeklyOrdersDTO getWeeklyOrders() {
+        WeeklyOrderDTO slavisa = new WeeklyOrderDTOBuilder().setName("Slavisa").setSum(new BigDecimal(12.34d)).createWeeklyOrderDTO();
+        List<WeeklyOrderDTO> order = new ArrayList<>();
+        order.add(slavisa);
+        WeeklyOrdersDTO weeklyOrdersDTO = new WeeklyOrdersBuilder().setTotalSum(new BigDecimal(1234.56d)).setOrders(order).createWeeklyOrdersDTO();
+        return weeklyOrdersDTO;
+    }
 
-
-/*    @RequestMapping(value = {"/name"}, method = RequestMethod.GET)
-    public List<OrderDTO> getAllOrders(@RequestParam String day) {
-        return new ArrayList<OrderDTO>();
-    }*/
 }
