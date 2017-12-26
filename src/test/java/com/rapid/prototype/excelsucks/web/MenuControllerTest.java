@@ -27,21 +27,21 @@ public class MenuControllerTest {
     public void whenGetFoodItem_thanAllOK() {
         String foodItem = restTemplate.getForObject("/menu/id/1", String.class);
         assertNotNull("food item", foodItem);
-        assertThat(foodItem, is("{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"photo_uri\":\"photoURI\"}"));
+        assertThat(foodItem, is("{\"id\":1,\"title\":\"Teleca corba\",\"description\":\"Mmm...\",\"price\":180,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/48/13248.jpg\"}"));
     }
 
     @Test
     public void whenGetFoodItemAsJson_thanAllOK() {
         String foodItem = restTemplate.getForObject("/menu", String.class);
         assertNotNull("food item", foodItem);
-        assertThat(foodItem, is("{\"1\":{\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"photo_uri\":\"photoURI\"}]}}"));
+        assertThat(foodItem, is("{\"1\":{\"foodItems\":[{\"id\":1,\"title\":\"Teleca corba\",\"description\":\"Mmm...\",\"price\":180,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/48/13248.jpg\"},{\"id\":2,\"title\":\"Corbast pasulj sa suvim mesom\",\"description\":\"Mmm...\",\"price\":350,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/49/13249.jpg\"},{\"id\":3,\"title\":\"Juneci gulas\",\"description\":\"Mmm...\",\"price\":430,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/50/13250.jpg\"},{\"id\":4,\"title\":\"Piletina sa povrcem\",\"description\":\"Mmm...\",\"price\":360,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/11/110611.jpg\"},{\"id\":5,\"title\":\"Pileci stapici u susamu\",\"description\":\"Mmm...\",\"price\":380,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/10/110610.jpg\"},{\"id\":6,\"title\":\"Svinjski vrat na zaru\",\"description\":\"Mmm...\",\"price\":430,\"day\":0,\"photo_uri\":\"https://www.donesi.com/images/product/16/124716.jpg\"}]}}"));
     }
 
     @Test
     public void whenGetFoodItemWithTheGivenDay_thanAllOK() {
         String foodItem = restTemplate.getForObject("/menu/day/1", String.class);
         assertNotNull("food item", foodItem);
-        assertThat(foodItem, is("{\"1\":{\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"photo_uri\":\"photoURI\"}]}}"));
+        assertThat(foodItem, is("{\"1\":{\"foodItems\":[]}}"));
     }
 
 }

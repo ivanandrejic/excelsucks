@@ -1,7 +1,6 @@
 package com.rapid.prototype.excelsucks.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.rapid.prototype.excelsucks.domain.Order;
 
 import java.util.List;
 
@@ -14,7 +13,13 @@ public class OrderDTO {
 
 	private String day;
 	private String name;
-	private List<OrderItemDTO> foodList;
+	private List<OrderItemDTO> orderItemDTOS;
+
+	public OrderDTO(String day, String name, List<OrderItemDTO> orderItemDTOS) {
+		this.day = day;
+		this.name = name;
+		this.orderItemDTOS = orderItemDTOS;
+	}
 
 	public OrderDTO() {
 	}
@@ -35,11 +40,11 @@ public class OrderDTO {
 		this.name = name;
 	}
 
-	public List<OrderItemDTO> getFoodList() {
-		return foodList;
+	public List<OrderItemDTO> getOrderItemDTOS() {
+		return orderItemDTOS;
 	}
 
-	public void setFoodList(List<OrderItemDTO> foodList) {
-		this.foodList = foodList;
+	public void setOrderItemDTOS(List<OrderItemDTO> orderItemDTOS) {
+		this.orderItemDTOS = orderItemDTOS;
 	}
 }

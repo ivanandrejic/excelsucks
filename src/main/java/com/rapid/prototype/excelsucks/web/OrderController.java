@@ -1,7 +1,11 @@
 package com.rapid.prototype.excelsucks.web;
 
+import com.rapid.prototype.excelsucks.web.dto.FoodItemBuilder;
 import com.rapid.prototype.excelsucks.web.dto.FoodItemDTO;
+import com.rapid.prototype.excelsucks.web.dto.OrderBuilder;
 import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
+import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
+import com.rapid.prototype.excelsucks.web.dto.OrderItemDTOBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
@@ -20,20 +27,34 @@ import java.util.List;
 @RestController
 public class OrderController {
 
+    @RequestMapping(value = {"/", ""}, method = RequestMethod.GET)
+    public OrderDTO getOrder(@RequestParam String name, @RequestParam String day) {
+        return new OrderBuilder().createOrderDTO();
+    }
+
+    @RequestMapping(value = {"/", ""}, method = RequestMethod.POST)
+    public OrderDTO postOrder(@RequestParam String name, @RequestParam String day, @RequestParam Long[] foodList) {
+        List<OrderItemDTO> orderItems = new ArrayList<>();
+        List<FoodItemDTO> listFoodItems = Arrays.stream(foodList).map(foodListID -> new FoodItemBuilder().setId(foodListID).createFoodItemDTO()).collect(Collectors.toList());
+        orderItems.add(new OrderItemDTOBuilder().setFoodItems(listFoodItems).createOrderItemDTO());
+        OrderDTO order = new OrderBuilder().setDay(day).setName(name).setOrderList(orderItems).createOrderDTO();
+
+        // TODO add service call
+
+        return order;
+    }
+
     @RequestMapping(value = {"/name"}, method = RequestMethod.POST)
     public OrderDTO postOrder(@RequestBody List<FoodItemDTO> foodList) {
-        return new OrderDTO();
+        return new OrderBuilder().createOrderDTO();
     }
 
     @RequestMapping(value = {"/name"}, method = RequestMethod.PATCH)
     public OrderDTO patchOrder(@RequestBody List<FoodItemDTO> foodList) {
-        return new OrderDTO();
+        return new OrderBuilder().createOrderDTO();
     }
 
-    @RequestMapping(value = {"/name"}, method = RequestMethod.GET)
-    public OrderDTO getOrder(@RequestParam String day) {
-        return new OrderDTO();
-    }
+
 
 /*    @RequestMapping(value = {"/name"}, method = RequestMethod.GET)
     public List<OrderDTO> getAllOrders(@RequestParam String day) {
