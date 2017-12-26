@@ -13,7 +13,7 @@ import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderItemService orderItemService;

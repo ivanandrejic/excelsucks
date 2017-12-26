@@ -30,4 +30,9 @@ public class FoodItem {
 
     @Column(name = "price")
     private Double price;
+    
+//    TODO split to separate domain
+    @Column(name = "day")
+    private Integer day;
+    
 }

@@ -14,4 +14,7 @@ public interface FoodItemRepository extends PagingAndSortingRepository<FoodItem,
 
     @Query("select f from FoodItem f where f.id in (:ids)")
     List<FoodItem> findByIds(@Param("ids") List<Long> ids);
+
+	public List<FoodItem> findByDay(@Param("day")Integer day);
+
 }
