@@ -1,5 +1,6 @@
 package com.rapid.prototype.excelsucks.web.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -13,7 +14,7 @@ public class OrderDailyDTO {
 
     @JsonProperty("food_name")
     private String foodName;
-    private List<String> names;
-    private Integer count;
+    private List<String> names = new ArrayList<>();
+    private Integer count = 0;
 
 }
