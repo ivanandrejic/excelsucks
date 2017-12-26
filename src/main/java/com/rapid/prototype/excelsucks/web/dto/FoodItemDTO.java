@@ -1,11 +1,14 @@
 package com.rapid.prototype.excelsucks.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
  * @since 2017-12-26
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FoodItemDTO {
 
 	private Long id;
