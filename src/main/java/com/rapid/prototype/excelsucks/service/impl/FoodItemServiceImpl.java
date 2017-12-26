@@ -2,7 +2,9 @@ package com.rapid.prototype.excelsucks.service.impl;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,25 @@ public class FoodItemServiceImpl implements FoodItemService {
 		
 		List<FoodItemDTO> result = new ArrayList<FoodItemDTO>();
 		for(FoodItem item: foodRepo.findAll()) {
-			result.add(convert(item));
+			FoodItemDTO dto = convert(item);
+			result.add(dto);
+		}
+		return result;
+	}
+	
+	@Override
+	public Map<Integer, List<FoodItemDTO>> findAllMap() {
+		
+		Map<Integer, List<FoodItemDTO>> result = new LinkedHashMap<Integer, List<FoodItemDTO>>();
+		for(FoodItem item: foodRepo.findAll()) {
+			FoodItemDTO dto = convert(item);
+			if (result.containsKey(item.getDay())) {
+				result.get(item.getDay()).add(dto);
+			} else {
+				List<FoodItemDTO> list = new ArrayList<>();
+				list.add(dto);
+				result.put(item.getDay(), list);
+			}
 		}
 		return result;
 	}
