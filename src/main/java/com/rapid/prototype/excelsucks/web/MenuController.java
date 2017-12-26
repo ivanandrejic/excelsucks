@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
@@ -20,12 +22,14 @@ import java.util.List;
 public class MenuController {
 
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET )
-    public SummaryFoodList getFoodList() {
+    public Map<Long, SummaryFoodList> getFoodList() {
         List<FoodItemDTO> foodItemDTOS = new ArrayList<>();
         foodItemDTOS.add(new FoodItemBuilder().createFoodItemDTO());
         SummaryFoodList summaryFoodList = new SummaryFoodList();
         summaryFoodList.setFoodItems(foodItemDTOS);
-        return summaryFoodList;
+        Map<Long, SummaryFoodList>  mFoodList = new HashMap<>();
+        mFoodList.put(1l, summaryFoodList);
+        return mFoodList;
     }
 
     @RequestMapping(value = {"/id/{foodItemID}"}, method = RequestMethod.GET )
