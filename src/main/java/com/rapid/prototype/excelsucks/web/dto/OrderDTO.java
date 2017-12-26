@@ -13,6 +13,7 @@ public class OrderDTO {
 
 	private String day;
 	private String name;
+
 	private List<OrderItemDTO> orderItemDTOS;
 
 	public OrderDTO(String day, String name, List<OrderItemDTO> orderItemDTOS) {
@@ -21,7 +22,7 @@ public class OrderDTO {
 		this.orderItemDTOS = orderItemDTOS;
 	}
 
-	public OrderDTO() {
+    public OrderDTO() {
 	}
 
 	public String getDay() {
@@ -39,6 +40,7 @@ public class OrderDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public List<OrderItemDTO> getOrderItemDTOS() {
 		return orderItemDTOS;
