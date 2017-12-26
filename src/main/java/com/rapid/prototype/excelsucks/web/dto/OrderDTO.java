@@ -1,15 +1,21 @@
 package com.rapid.prototype.excelsucks.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
  * @since 2017-12-26
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderDTO {
 
 	private String day;
 	private String name;
+
+	public OrderDTO() {
+	}
 
 	private List<FoodItemDTO> foodList;
 
