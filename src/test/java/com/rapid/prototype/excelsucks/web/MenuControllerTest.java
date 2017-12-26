@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author <a href="mailto:slavisa.avramovic@escriba.de">avramovics</a>
@@ -23,10 +25,18 @@ public class MenuControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
+
     @Test
     public void whenGetFoodItem_thanAllOK() {
-        Map<Long, SummaryFoodList> foodItem = restTemplate.getForObject("/1", Map.class);
+        Map<Long, SummaryFoodList> foodItem = restTemplate.getForObject("/menu/1", Map.class);
         assertNotNull("food item", foodItem);
+    }
+
+    @Test
+    public void whenGetFoodItemAsJson_thanAllOK() {
+        String foodItem = restTemplate.getForObject("/menu", String.class);
+        assertNotNull("food item", foodItem);
+        assertThat(foodItem, is("{\"1\":{\"foodItems\":[{\"id\":1,\"title\":\"naslov\",\"description\":\"opis\",\"price\":10,\"photo_uri\":\"photoURI\"}]}}"));
     }
 
     @Test

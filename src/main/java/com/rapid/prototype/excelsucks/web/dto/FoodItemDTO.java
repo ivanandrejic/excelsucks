@@ -1,6 +1,7 @@
 package com.rapid.prototype.excelsucks.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 
@@ -14,6 +15,7 @@ public class FoodItemDTO {
 	private Long id;
 	private String title;
 	private String description;
+	@JsonProperty("photo_uri")
 	private String photoURI;
 	private BigDecimal price;
 
