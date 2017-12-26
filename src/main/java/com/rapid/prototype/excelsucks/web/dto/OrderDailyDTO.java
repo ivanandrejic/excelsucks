@@ -15,6 +15,6 @@ public class OrderDailyDTO {
     @JsonProperty("food_name")
     private String foodName;
     private List<String> names = new ArrayList<>();
-    private Integer count;
+    private Integer count = 0;
 
 }
