@@ -13,11 +13,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "order_item")
 @Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem {
 
     @Id
