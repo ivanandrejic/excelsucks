@@ -23,14 +23,23 @@ public class FoodItemServiceImpl implements FoodItemService {
 		
 		List<FoodItemDTO> result = new ArrayList<FoodItemDTO>();
 		for(FoodItem item: foodRepo.findAll()) {
-			FoodItemDTO dto = new FoodItemDTO();
-			dto.setDescription(item.getDescription());
-			dto.setId(item.getId());
-			dto.setPhotoURI(item.getPhotoUri());
-			dto.setPrice(new BigDecimal(item.getPrice()));
-			dto.setTitle(item.getTitle());
+			result.add(convert(item));
 		}
 		return result;
+	}
+
+	private FoodItemDTO convert(FoodItem item) {
+		FoodItemDTO dto = new FoodItemDTO();
+		dto.setDescription(item.getDescription());
+		dto.setId(item.getId());
+		dto.setPhotoURI(item.getPhotoUri());
+		dto.setPrice(new BigDecimal(item.getPrice()));
+		dto.setTitle(item.getTitle());
+		return dto;
+	}
+	
+	public FoodItemDTO findOne(Long id) {
+		return convert(foodRepo.findOne(id));
 	}
 	
 	

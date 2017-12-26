@@ -8,4 +8,6 @@ public interface FoodItemService {
 
 	public List<FoodItemDTO> findAll();
 	
+	public FoodItemDTO findOne(Long id);
+	
 }

@@ -1,8 +1,11 @@
 package com.rapid.prototype.excelsucks.web;
 
-import com.rapid.prototype.excelsucks.web.dto.FoodItemBuilder;
+import com.rapid.prototype.excelsucks.service.FoodItemService;
+//import com.rapid.prototype.excelsucks.web.dto.FoodItemBuilder;
 import com.rapid.prototype.excelsucks.web.dto.FoodItemDTO;
 import com.rapid.prototype.excelsucks.web.dto.SummaryFoodList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +25,13 @@ import java.util.Map;
 @RequestMapping("/menu")
 @RestController
 public class MenuController {
+	
+	@Autowired
+	FoodItemService foodService;
 
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET )
     public Map<Long, SummaryFoodList> getFoodList() {
-        List<FoodItemDTO> foodItemDTOS = new ArrayList<>();
-        foodItemDTOS.add(new FoodItemBuilder().createFoodItemDTO());
+        List<FoodItemDTO> foodItemDTOS = foodService.findAll();
         SummaryFoodList summaryFoodList = new SummaryFoodList();
         summaryFoodList.setFoodItems(foodItemDTOS);
         Map<Long, SummaryFoodList>  mFoodList = new HashMap<>();
@@ -36,8 +41,7 @@ public class MenuController {
 
     @RequestMapping(value = {"/day/{day}"}, method = RequestMethod.GET )
     public Map<Long, SummaryFoodList> getFoodList(@PathVariable Integer day) {
-        List<FoodItemDTO> foodItemDTOS = new ArrayList<>();
-        foodItemDTOS.add(new FoodItemBuilder().createFoodItemDTO());
+        List<FoodItemDTO> foodItemDTOS = foodService.findAll();
         SummaryFoodList summaryFoodList = new SummaryFoodList();
         summaryFoodList.setFoodItems(foodItemDTOS);
         Map<Long, SummaryFoodList>  mFoodList = new HashMap<>();
@@ -47,7 +51,7 @@ public class MenuController {
 
     @RequestMapping(value = {"/id/{foodItemID}"}, method = RequestMethod.GET )
     public FoodItemDTO getFoodItem(@PathVariable Long foodItemID) {
-        return new FoodItemBuilder().createFoodItemDTO();
+        return foodService.findOne(foodItemID);
     }
 
 }
