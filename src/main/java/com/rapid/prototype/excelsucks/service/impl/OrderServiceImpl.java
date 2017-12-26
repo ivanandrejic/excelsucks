@@ -10,7 +10,6 @@ import com.rapid.prototype.excelsucks.repo.OrderRepository;
 import com.rapid.prototype.excelsucks.service.OrderItemService;
 import com.rapid.prototype.excelsucks.service.OrderService;
 import com.rapid.prototype.excelsucks.web.dto.OrderDTO;
-import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
 
 @Service
 public class OrderServiceImpl implements OrderService {

@@ -28,4 +28,10 @@ public class OrderItemService {
         orderItem.setFoodItems(foodItemRepository.findByIds(orderItemDTO.getFoodItems().stream().map(fi -> fi.getId()).collect(Collectors.toList())));
         return orderItemRepository.save(orderItem);
     }
+
+//    public void getDailyOrders(Integer day) {
+//        List<OrderItem>
+//
+//
+//    }
 }
