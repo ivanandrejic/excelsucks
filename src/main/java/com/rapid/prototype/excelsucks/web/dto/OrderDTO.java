@@ -14,6 +14,9 @@ public class OrderDTO {
 	private String day;
 	private String name;
 
+	public OrderDTO() {
+	}
+
 	private List<FoodItemDTO> foodList;
 
 	public String getDay() {

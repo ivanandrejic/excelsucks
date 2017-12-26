@@ -17,6 +17,17 @@ public class FoodItemDTO {
 	private String photoURI;
 	private BigDecimal price;
 
+	public FoodItemDTO() {
+	}
+
+	public FoodItemDTO(Long id, String title, String description, String photoURI, BigDecimal price) {
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.photoURI = photoURI;
+		this.price = price;
+	}
+
 	public Long getId() {
 		return id;
 	}
