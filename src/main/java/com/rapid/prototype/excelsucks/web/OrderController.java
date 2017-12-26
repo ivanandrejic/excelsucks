@@ -54,7 +54,7 @@ public class OrderController {
     public OrderDTO postOrder(@RequestParam String name, @RequestParam String day, @RequestParam Long[] foodList) {
         List<OrderItemDTO> orderItems = new ArrayList<>();
         List<FoodItemDTO> listFoodItems = Arrays.stream(foodList).map(foodListID -> new FoodItemBuilder().setId(foodListID).createFoodItemDTO()).collect(Collectors.toList());
-        orderItems.add(new OrderItemDTOBuilder().setFoodItems(listFoodItems).createOrderItemDTO());
+        orderItems.add(new OrderItemDTOBuilder().setName(name).setFoodItems(listFoodItems).createOrderItemDTO());
         OrderDTO order = new OrderBuilder().setDay(day).setName(name).setOrderList(orderItems).createOrderDTO();
 
         Order orderCreated = orderService.create(order);
