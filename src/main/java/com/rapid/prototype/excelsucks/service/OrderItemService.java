@@ -1,12 +1,20 @@
 package com.rapid.prototype.excelsucks.service;
 
+import com.rapid.prototype.excelsucks.domain.FoodItem;
 import com.rapid.prototype.excelsucks.domain.Order;
 import com.rapid.prototype.excelsucks.domain.OrderItem;
 import com.rapid.prototype.excelsucks.repo.FoodItemRepository;
 import com.rapid.prototype.excelsucks.repo.OrderItemRepository;
+import com.rapid.prototype.excelsucks.web.dto.OrderDailyDTO;
 import com.rapid.prototype.excelsucks.web.dto.OrderItemDTO;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrderDTO;
+import com.rapid.prototype.excelsucks.web.dto.WeeklyOrdersDTO;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -38,18 +46,18 @@ public class OrderItemService {
 
             orderItem.getFoodItems().forEach(fi ->
 
-                                             {
-                                                 OrderDailyDTO list = new OrderDailyDTO();
-                                                 list.setFoodName(fi.getTitle());
-                                                 if (data.containsKey(fi.getTitle())) {
-                                                     list = data.get(fi.getTitle());
-                                                 } else {
-                                                     data.put(fi.getTitle(), list);
-                                                 }
+            {
+                OrderDailyDTO list = new OrderDailyDTO();
+                list.setFoodName(fi.getTitle());
+                if (data.containsKey(fi.getTitle())) {
+                    list = data.get(fi.getTitle());
+                } else {
+                    data.put(fi.getTitle(), list);
+                }
 
-                                                 list.setCount(list.getCount() + 1);
-                                                 list.getNames().add(orderItem.getName());
-                                             });
+                list.setCount(list.getCount() + 1);
+                list.getNames().add(orderItem.getName());
+            });
         }
         return new ArrayList<>(data.values());
     }
@@ -58,7 +66,7 @@ public class OrderItemService {
         Iterable<OrderItem> items = orderItemRepository.findAll();
 
         Map<String, List<FoodItem>> foodItemsPerName = new HashMap<>();
-        for (OrderItem item :items ) {
+        for (OrderItem item : items) {
             if (foodItemsPerName.get(item.getName()) != null) {
                 foodItemsPerName.get(item.getName()).addAll(item.getFoodItems());
             } else {
@@ -67,13 +75,13 @@ public class OrderItemService {
         }
 
         Map<String, BigDecimal> foodPrice = new HashMap<>();
-        for (String person :foodItemsPerName.keySet() ) {
-            foodPrice.put(person, totalPricePerPerson( foodItemsPerName.get(person)));
+        for (String person : foodItemsPerName.keySet()) {
+            foodPrice.put(person, totalPricePerPerson(foodItemsPerName.get(person)));
         }
 
         List<WeeklyOrderDTO> weeklyOrderDTOS = new ArrayList<>();
 
-        for (String person :foodPrice.keySet() ) {
+        for (String person : foodPrice.keySet()) {
             WeeklyOrderDTO order = new WeeklyOrderDTO(person, foodPrice.get(person));
             weeklyOrderDTOS.add(order);
         }
@@ -86,7 +94,6 @@ public class OrderItemService {
         double sum = foodItems.stream().map(FoodItem::getPrice).mapToDouble(Double::doubleValue).sum();
         return new BigDecimal(sum);
     }
-
 
 
 }
