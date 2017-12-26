@@ -18,6 +18,7 @@ public class FoodItemDTO {
 	@JsonProperty("photo_uri")
 	private String photoURI;
 	private BigDecimal price;
+	private Integer day;
 
 	public FoodItemDTO() {
 	}
@@ -69,4 +70,14 @@ public class FoodItemDTO {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
+
+	public Integer getDay() {
+		return day;
+	}
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+	
+	
 }

@@ -41,7 +41,7 @@ public class MenuController {
 
     @RequestMapping(value = {"/day/{day}"}, method = RequestMethod.GET )
     public Map<Long, SummaryFoodList> getFoodList(@PathVariable Integer day) {
-        List<FoodItemDTO> foodItemDTOS = foodService.findAll();
+        List<FoodItemDTO> foodItemDTOS = foodService.findByDay(day);
         SummaryFoodList summaryFoodList = new SummaryFoodList();
         summaryFoodList.setFoodItems(foodItemDTOS);
         Map<Long, SummaryFoodList>  mFoodList = new HashMap<>();

@@ -27,7 +27,19 @@ public class FoodItemServiceImpl implements FoodItemService {
 		}
 		return result;
 	}
-
+	
+	public FoodItemDTO findOne(Long id) {
+		return convert(foodRepo.findOne(id));
+	}
+	
+	public List<FoodItemDTO> findByDay(Integer day) {
+		List<FoodItemDTO> result = new ArrayList<FoodItemDTO>();
+		for(FoodItem item: foodRepo.findByDay(day)) {
+			result.add(convert(item));
+		}
+		return result;
+	}
+	
 	private FoodItemDTO convert(FoodItem item) {
 		FoodItemDTO dto = new FoodItemDTO();
 		dto.setDescription(item.getDescription());
@@ -35,13 +47,9 @@ public class FoodItemServiceImpl implements FoodItemService {
 		dto.setPhotoURI(item.getPhotoUri());
 		dto.setPrice(new BigDecimal(item.getPrice()));
 		dto.setTitle(item.getTitle());
+		dto.setDay(item.getDay());
 		return dto;
 	}
-	
-	public FoodItemDTO findOne(Long id) {
-		return convert(foodRepo.findOne(id));
-	}
-	
 	
 
 }
