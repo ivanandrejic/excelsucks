@@ -14,9 +14,10 @@ public class OrderDTO {
 
 	private String day;
 	private String name;
-	private List<OrderItemDTO> foodList;
+	private List<OrderItemDTO> orderItems;
 
-	public OrderDTO() {
+
+    public OrderDTO() {
 	}
 
 	public String getDay() {
@@ -35,11 +36,11 @@ public class OrderDTO {
 		this.name = name;
 	}
 
-	public List<OrderItemDTO> getFoodList() {
-		return foodList;
-	}
+    public List<OrderItemDTO> getOrderItems() {
+        return orderItems;
+    }
 
-	public void setFoodList(List<OrderItemDTO> foodList) {
-		this.foodList = foodList;
-	}
+    public void setOrderItems(List<OrderItemDTO> orderItems) {
+        this.orderItems = orderItems;
+    }
 }
