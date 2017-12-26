@@ -2,7 +2,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         21,
         'Dimljeni batak',
-        'Mmm...',
+        'Delikates',
         450.00,
         'https://www.donesi.com/images/product/84/13284.jpg',
         0
@@ -10,7 +10,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         22,
         'Pohovani kackavalj - obrok',
-        'Mmm...',
+        'Predivno',
         350.00,
         'https://www.donesi.com/images/product/11/13311.jpg',
         0
@@ -18,7 +18,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         23,
         'Juneci gulas',
-        'Mmm...',
+        'Za vegance',
         430.00,
         'https://www.donesi.com/images/product/50/13250.jpg',
         0
@@ -34,7 +34,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         25,
         'File soma',
-        'Mmm...',
+        'somac :)',
         480.00,
         'https://www.donesi.com/images/product/41/59641.jpg',
         0
@@ -42,7 +42,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         26,
         'Rolovano pilece belo',
-        'Mmm...',
+        'i dise i mirise :)',
         490.00,
         'https://www.donesi.com/images/product/32/13332.jpg',
         0
@@ -50,7 +50,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         11,
         'Cevapi - porcija',
-        'Mmm...',
+        'deset u pola s likom',
         450.00,
         'https://www.donesi.com/images/product/59/14259.jpg',
         1
@@ -58,7 +58,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         12,
         'Komplet obrok - piletina',
-        'Mmm...',
+        'sjajno, predivno',
         530.00,
         'https://www.donesi.com/images/product/77/13277.jpg',
         1
@@ -66,7 +66,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         13,
         'Dimljena vesalica',
-        'Mmm...',
+        'delikates',
         530.00,
         'https://www.donesi.com/images/product/62/13262.jpg',
         1
@@ -74,7 +74,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         14,
         'Piletina sa povrcem',
-        'Mmm...',
+        'Sjajno',
         360.00,
         'https://www.donesi.com/images/product/11/110611.jpg',
         1
@@ -82,7 +82,7 @@ insert into food_item(id, title, description, price, photo_uri, day) values
     (
         15,
         'Pileci stapici u susamu',
-        'Mmm...',
+        'Francuski recept',
         380.00,
         'https://www.donesi.com/images/product/10/110610.jpg',
         1
